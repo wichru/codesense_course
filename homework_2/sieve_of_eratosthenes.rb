@@ -1,14 +1,10 @@
-class Eratosthenes
-  def initialize(2..n)
-    @n = n
-    @range = (2..n).to_a
-  end
-
-  def sieve_of_eratsthenes
-    @range
-  end
+def primes(n)
+  range = (2..n).to_a
+  range.each {|num| range.delete_if {|e| e > num && e % num == 0} }
+  range
 end
 
+puts "Prime numbers: #{primes(10)}"
 
 
 # require 'prime'
