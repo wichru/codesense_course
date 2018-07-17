@@ -6,7 +6,6 @@ end
 
 puts "Prime numbers: #{primes(10)}"
 
-
 # require 'prime'
 #
 # n = (10)
