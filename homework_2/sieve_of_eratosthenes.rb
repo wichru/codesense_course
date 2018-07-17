@@ -1,4 +1,4 @@
-class Eratostenesa
+class Eratosthenes
   def initialize(2..n)
     @n = n
     @range = (2..n).to_a
@@ -13,9 +13,9 @@ end
 
 # require 'prime'
 #
-# num = (10)
+# n = (10)
 # primes = Prime::EratosthenesGenerator.new.take_while {|i| i <= num}
 #
-# primes.include?(num)
+# primes.include?(n)
 #
 # puts primes
