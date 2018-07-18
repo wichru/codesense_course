@@ -33,9 +33,11 @@ private
       while less(arr[i+=1], p)
         break if i == hi
       end
+      
       while less(p, arr[j-=1])
         break if j == lo
       end
+
       break if i >=j
       exchange(arr, i, j)
     end
