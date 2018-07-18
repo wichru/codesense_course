@@ -4,17 +4,17 @@ class QuickSort
     sort_internally(arr, 0, arr.length-1)
   end
 
-  def is_sorted(arr)
-    for i in 1...arr.length
-      return false if less(arr[i], arr[i-1])
-
-      return true
-    end
-  end
+  # def is_sorted(arr)
+  #   for i in 1...arr.length
+  #     return false if less(arr[i], arr[i-1])
+  #
+  #     return true
+  #   end
+  # end
 
   def print_elements(arr)
     arr.each {|it| print it, " " unless it.nil?}
-    print "\n"
+    puts "\n"
   end
 
 private
@@ -56,5 +56,5 @@ end
 arr = [74, 77, 64, 19, 43, 47, 77, 66, 47, 60, 7, 97, 71, 87, 95, 79]
 sorting = QuickSort.new
 sorting.sort(arr)
-puts "Unsorted!" unless sorting.is_sorted(arr)
+# puts "Unsorted!" unless sorting.is_sorted(arr)
 sorting.print_elements(arr)
