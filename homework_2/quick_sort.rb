@@ -56,5 +56,5 @@ end
 arr = [74, 77, 64, 19, 43, 47, 77, 66, 47, 60, 7, 97, 71, 87, 95, 79]
 sorting = QuickSort.new
 sorting.sort(arr)
-puts "Nieposortowana!" unless sorting.is_sorted(arr)
+puts "Unsorted!" unless sorting.is_sorted(arr)
 sorting.print_elements(arr)
