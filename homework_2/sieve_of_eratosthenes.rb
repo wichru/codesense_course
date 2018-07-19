@@ -1,10 +1,21 @@
-def primes(n)
+class Prime
+
+  attr_accessor :n
+
+  def initialize
+    @n = n
+  end
+
+  def primes(n)
   range = (2..n).to_a
   range.each {|num| range.delete_if {|e| e > num && e % num == 0} }
   range
+  end
+
 end
 
-puts "Prime numbers: #{primes(10)}"
+prime = Prime.new
+puts "Prime numbers: #{prime.primes(10)}"
 
 # require 'prime'
 #
