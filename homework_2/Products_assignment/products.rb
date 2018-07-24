@@ -1,33 +1,44 @@
 require 'csv'
 
 class Products
-  attr_accessor :name, :price, :weight, :list_of_products
+  attr_accessor :source, :name
 
-  def initialize(*args)
-    @name = args[0]
-    @price = args[1]
-    @weight = args[2]
-    @list_of_products = Products.load_CSV
+  def initialize
+    self.name = name
 
   end
 
-  def self.load_CSV
-    file = File.read("products.csv")
-    # CSV.load(file, nil, symbolize_names: true)
-    # puts file
 
-  end
 
-  def search_product(something)
-    @name.each do |product|
-      if something = product
-        puts product
+  def csv_hash(product_name)
+    array = []
+    CSV.foreach("products.csv", headers: true) do |row|
+      array << row["name"]
+      array << row["price"]
+    end
+    array.each do |element|
+        if element == product_name
+          puts element
+        else
+        puts "Product doesn't exist"
       end
     end
-    # doesn't work! have to figure out how to change arguments in CSV file to an array
+  end
+
+
+
+  def csv_reader
+    CSV.foreach("products.csv", headers: true, header_converters: :symbol) do |row|
+      puts row.values_at(0,1).join(" ")
+    end
+  end
+
+  def search(finding_name)
+
   end
 
 end
 
-product = Products.new(['apple', '3zł', '20kg'])
-product.search_product('apple')
+product = Products.new
+
+product.csv_hash("orange")
