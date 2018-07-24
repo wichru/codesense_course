@@ -10,12 +10,12 @@ class Prime
   def primes
   range = (i..n).to_a
   range.each {|num| range.delete_if {|e| e > num && e % num == 0} }
-  range
+  range.join(' ')
   end
 
 end
 
-prime = Prime.new(1, 10)
+prime = Prime.new(2, 10)
 puts "Prime numbers: #{prime.primes}"
 
 # require 'prime'
