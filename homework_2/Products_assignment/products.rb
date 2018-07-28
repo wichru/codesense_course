@@ -17,25 +17,25 @@ class Products
   end
 
   def search(fruit)
-    @foo.detect { |product| product[0] == fruit
+    @foo.detect { |product| product['name'] == fruit
       puts joinable(product) }
   end
 
   def lower_price(price)
-    @foo.detect { |product| product[1] < price.to_s
+    @foo.detect { |product| product['price'] < price.to_s
       puts joinable(product) }
   end
 
   def higher_price(price)
-    @foo.detect { |product| product[1] > price.to_s
+    @foo.detect { |product| product['name'] > price.to_s
       puts joinable(product) }
   end
 
   def conversion(fx_rate, fx, path)
     rate = []
     name = []
-    rate = @foo.each { |product| (product[1].to_f * fx_rate).round(2).to_s + fx }
-    name = @foo.each { |name| name[0] }
+    rate = @foo.each { |product| (product['price'].to_f * fx_rate).round(2).to_s + fx }
+    name = @foo.each { |name| name['name'] }
 
     CSV.open(path, "wb") do |csv|
       csv << name.zip(rate)
