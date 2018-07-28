@@ -1,3 +1,4 @@
+require 'csv'
 require 'haar_joke'
 
 File.open("jokes.txt", "w") do |file|
