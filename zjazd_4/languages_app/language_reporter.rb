@@ -6,7 +6,6 @@ class Execute
 
   def initialize
 
-
   end
 
   def run
@@ -14,4 +13,4 @@ class Execute
   end
 end
 
-Execute.new.run
+puts Execute.new.run
