@@ -1,6 +1,7 @@
-def hello(name, count = 1)
+def hello(first_name, last_name, count = 1)
   count.times do
-  puts "Hello #{name}"
+    puts "Hello #{first_name} #{last_name}"
+  end
 end
 
-hello("janek", 4)
+hello("Janek", "Kowalski", 4)
