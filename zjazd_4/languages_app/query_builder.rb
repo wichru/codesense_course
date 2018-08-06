@@ -1,8 +1,6 @@
 require 'pg'
 
-
-class QueryBilder
-
+class QueryBuilder
   def initialize(language, is_official)
     @language = language
     @is_official = is_official
@@ -18,11 +16,12 @@ class QueryBilder
   end
 
   private
+
   def official(param)
-    if param == "is_official"
-      "AND countrylanguage.isofficial = true"
-    elsif param == "is_not_official"
-      "AND countrylanguage.isofficial = false"
+    if param == 'is_official'
+      'AND countrylanguage.isofficial = true'
+    elsif param == 'is_not_official'
+      'AND countrylanguage.isofficial = false'
     end
   end
 end

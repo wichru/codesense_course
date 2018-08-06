@@ -1,13 +1,19 @@
+require 'pg'
 require 'csv'
+require './query_builder'
 
-class Create_CSV_File
+class CreateCSVFile
+  def initialize
+    @path = QueryBuilder.new(ARGV[0], ARGV[1]).run
+  end
+
   def report
-  conn = PG.connect(dbname: 'Pan_Maciej')
-  conn.exec(@query) do |result|
-    CSV.open("sth.csv", "wb") do |file|
-      file << ["district", "sum"]
+    conn = PG.connect(dbname: 'Pan_Maciej')
+    conn.exec(@path) do |result|
+      CSV.open("languages.csv", "wb") do |file|
+        file << %w[district sum]
         result.each do |row|
-          file << [row["district"], row["sum"]]
+          file << [row['district'], row['sum']]
         end
       end
     end

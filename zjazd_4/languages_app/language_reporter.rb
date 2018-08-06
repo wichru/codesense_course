@@ -1,16 +1,12 @@
-require 'pg'
-require 'csv'
-require './query_builder'
+# require 'pg'
+# require 'csv'
+# require './query_builder'
+require './create_csv'
 
 class Execute
-
-  def initialize
-
-  end
-
   def run
-    QueryBilder.new(ARGV[0], ARGV[1]).run
+    CreateCSVFile.new.report
   end
 end
 
-puts Execute.new.run
+Execute.new.run
