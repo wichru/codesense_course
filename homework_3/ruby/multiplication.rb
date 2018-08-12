@@ -3,7 +3,7 @@ def multiplication(n)
 end
 
 def printer
-  (1..10).map { |e| puts '%3d |' % e }
+  (1..10).map { |x| puts "----"  }.join(' ')
 end
 
 puts multiplication(10)
