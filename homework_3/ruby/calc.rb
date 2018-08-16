@@ -10,7 +10,10 @@ attr_accessor :x, :y
     loop do
       show_tasks
       parse_action
-      break if @action >= '5'
+      if @action >= '5'
+        puts 'Bye, bye'
+        break
+      end
       numbers
       execute
     end
