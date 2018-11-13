@@ -24,19 +24,25 @@ RSpec.describe Converter do
   end
 
   describe "#add_currency" do
+    before do
+      converter.add_currency(currency, value)
+    end
+
+    let(:currency) { :chf }
+
     context "when currency is not present yet" do
       let(:currencies) { { usd: 3.6334 } }
+      let(:value) { 3.7639 }
 
       it "add new currency" do
-        converter.add_currency(:chf, 3.7639)
-        expect(currencies).to eq(usd: 3.6334, chf: 3.7639)
+        expect(currencies).to eq(usd: 3.6334, chf:  3.7639)
       end
 
       context "when currency is already present" do
         let(:currencies) { { chf: 3.897 } }
+        let(:value) { 4.323 }
 
         it "overwrites currency" do
-          converter.add_currency(:chf, 4.323)
           expect(currencies).to eq(chf: 4.323)
         end
       end
