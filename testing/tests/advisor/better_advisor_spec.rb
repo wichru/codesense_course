@@ -1,9 +1,11 @@
-require_relative "advisor"
+require_relative "better_advisor"
 require_relative "weather_service"
 
-RSpec.describe Advisor do
-  let(:advisor)         { Advisor.new(weather_service) }
+RSpec.describe BetterAdvisor do
+  let(:advisor)         { BetterAdvisor.new }
   let(:weather_service) { instance_double(WeatherService, precipitation: precipitation, temperature: temperature) }
+
+  before { allow(WeatherService).to receive(:new).and_return(weather_service) }
 
   describe "#clothes" do
     context "for a cold rainy day" do
